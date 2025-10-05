@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../i10n/app_localizations.dart';
-import 'post_list_page.dart';
-import 'saved_post_page.dart';
+import 'package:flutter_tech_task/i10n/app_localizations.dart';
+import 'package:flutter_tech_task/presentation/pages/post_list_page.dart';
+import 'package:flutter_tech_task/presentation/pages/saved_post_page.dart';
+import 'package:flutter_tech_task/presentation/providers/saved_posts_notifier.dart';
+
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final savedPostsAsync = ref.watch(savedPostsProvider);
     
-    
-    // TO:DO Get saved count, defaulting to 0 if loading/error
-    const savedCount = 0;
+    // Get saved count, defaulting to 0 if loading/error
+    final savedCount = savedPostsAsync.when(
+      data: (posts) => posts.length,
+      loading: () => 0,
+      error: (_, __) => 0,
+    );
 
     return DefaultTabController(
       length: 2,
@@ -29,12 +35,12 @@ class HomePage extends ConsumerWidget {
                     Text(AppLocalizations.of(context)!.saved),
                     if (savedCount > 0) ...[
                       const SizedBox(width: 6),
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 10,
                         backgroundColor: Colors.red,
                         child: Text(
                           '$savedCount',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 12,
                             color: Colors.white,
                           ),

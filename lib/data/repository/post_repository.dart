@@ -14,4 +14,16 @@ abstract class PostRepository {
 
   /// Fetch comments for a specific post from remote data source
   Future<Either<ApiError, List<CommentModel>>> getCommentsForPost(int postId);
+
+  /// Save a post locally for offline access
+  Future<void> savePostLocally(Post post);
+
+  /// Remove a saved post from local storage
+  Future<void> removeSavedPost(int postId);
+
+  /// Get all locally saved posts
+  Future<List<Post>> getSavedPosts();
+
+  /// Check if a specific post is saved locally
+  Future<bool> isPostSaved(int postId);
 }

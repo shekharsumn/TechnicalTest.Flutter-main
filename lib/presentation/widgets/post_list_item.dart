@@ -71,7 +71,7 @@ class PostListItem extends ConsumerWidget {
         color: isSaved ? Colors.blue : null,
       ),
       onPressed: () {
-        //ref.read(savedPostsProvider.notifier).toggle(post);
+        ref.read(savedPostsProvider.notifier).toggle(post);
       },
     );
   }

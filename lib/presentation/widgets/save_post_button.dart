@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tech_task/data/models/post_model.dart';
+import 'package:flutter_tech_task/presentation/providers/saved_posts_notifier.dart';
 
 /// A reusable widget that handles save/unsave functionality for posts
 /// Following Single Responsibility Principle - only handles save state logic
@@ -24,7 +25,7 @@ class SavePostButton extends ConsumerWidget {
         color: isSaved ? Colors.blue : null,
       ),
       onPressed: () {
-        //ref.read(savedPostsProvider.notifier).toggle(post);
+        ref.read(savedPostsProvider.notifier).toggle(post);
       },
     );
   }
