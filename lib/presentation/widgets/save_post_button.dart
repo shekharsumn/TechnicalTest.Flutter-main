@@ -15,17 +15,33 @@ class SavePostButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final savedPosts = ref.watch(savedPostsProvider);
-    final isSaved = savedPosts.any((p) => p.id == post.id);
-
-    return IconButton(
-      icon: Icon(
-        isSaved ? Icons.bookmark : Icons.bookmark_border,
-        color: isSaved ? Colors.blue : null,
-      ),
-      onPressed: () {
-        ref.read(savedPostsProvider.notifier).toggle(post);
+    final savedPostsAsync = ref.watch(savedPostsProvider);
+    
+    return savedPostsAsync.when(
+      data: (savedPosts) {
+        final isSaved = savedPosts.any((p) => p.id == post.id);
+        return IconButton(
+          icon: Icon(
+            isSaved ? Icons.bookmark : Icons.bookmark_border,
+            color: isSaved ? Colors.blue : null,
+          ),
+          onPressed: () {
+            ref.read(savedPostsProvider.notifier).toggle(post);
+          },
+        );
       },
+      loading: () => IconButton(
+        icon: const Icon(Icons.bookmark_border),
+        onPressed: () {
+          ref.read(savedPostsProvider.notifier).toggle(post);
+        },
+      ),
+      error: (error, stack) => IconButton(
+        icon: const Icon(Icons.bookmark_border),
+        onPressed: () {
+          ref.read(savedPostsProvider.notifier).toggle(post);
+        },
+      ),
     );
   }
 }

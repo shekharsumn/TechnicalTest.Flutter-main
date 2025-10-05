@@ -81,7 +81,7 @@ class DetailsPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Post details'),
         actions: [
-          SavePostButton(post: savedPost, savedPosts: savedPosts),
+          SavePostButton(post: savedPost),
         ],
       ),
       body: PostContentWidget(
@@ -115,7 +115,7 @@ class DetailsPage extends ConsumerWidget {
             appBar: AppBar(
               title: const Text('Post details'),
               actions: [
-                SavePostButton(post: post, savedPosts: savedPosts),
+                SavePostButton(post: post),
               ],
             ),
             body: PostContentWidget(
