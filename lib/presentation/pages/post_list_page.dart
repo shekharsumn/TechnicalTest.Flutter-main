@@ -6,13 +6,8 @@ class ListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Post List'),
-      ),
-      body: const Center(
-        child: Text('Post list will appear here.'),
-      ),
+    return const Center(
+      child: Text('Post list will appear here.'),
     );
   }
 }

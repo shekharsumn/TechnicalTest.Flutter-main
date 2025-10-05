@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PostPage extends ConsumerWidget {
-  const PostPage({Key? key}) : super(key: key);
+class SavedPostPage extends ConsumerWidget {
+  const SavedPostPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Saved Posts'),
-      ),
-      body: const Center(
-        child: Text('No saved posts yet.'),
-      ),
+    return const Center(
+      child: Text('No saved posts yet.'),
     );
   }
 }
