@@ -9,14 +9,13 @@ class SavePostButton extends ConsumerWidget {
   const SavePostButton({
     Key? key,
     required this.post,
-    this.savedPosts = const [],
   }) : super(key: key);
 
   final Post post;
-  final List<Post> savedPosts;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final savedPosts = ref.watch(savedPostsProvider);
     final isSaved = savedPosts.any((p) => p.id == post.id);
 
     return IconButton(
