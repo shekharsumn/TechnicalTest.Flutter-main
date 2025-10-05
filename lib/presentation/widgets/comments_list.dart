@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/data/models/comment_model.dart';
 import 'package:flutter_tech_task/presentation/widgets/comment_card.dart';
 import 'package:flutter_tech_task/utils/app_constants.dart';
-import 'package:flutter_tech_task/i10n/app_localizations.dart';
+import 'package:flutter_tech_task/l10n/app_localizations.dart';
 
 /// A widget that displays a list of comments or an empty state
 /// Following Single Responsibility Principle - only handles comments list display

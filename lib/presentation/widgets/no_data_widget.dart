@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/utils/app_constants.dart';
-import '../../i10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 
 /// A reusable widget for displaying 'no data available' states consistently across the app
 /// Eliminates duplicate no-data UI patterns and ensures consistent presentation

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tech_task/data/models/comment_model.dart';
 import 'package:flutter_tech_task/domain/usecases/get_comments_usecase.dart';
-import 'package:flutter_tech_task/i10n/app_localizations.dart';
+import 'package:flutter_tech_task/l10n/app_localizations.dart';
 import 'package:flutter_tech_task/presentation/providers/connectivity_notifier.dart';
 import 'package:flutter_tech_task/presentation/widgets/offline_error_widget.dart';
 import 'package:flutter_tech_task/presentation/widgets/error_display_widget.dart';

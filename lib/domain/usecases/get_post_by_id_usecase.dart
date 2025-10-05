@@ -15,8 +15,15 @@ class GetPostByIdUseCase {
   /// Execute the use case to get a post by ID
   /// First checks if the post is saved locally, then tries remote API
   Future<Either<ApiError, Post>> call(int postId) async {
-    // For now, we directly
-    // fetch from remote API
+    // First try to get from local storage
+    final savedPosts = await _repository.getSavedPosts();
+    final savedPost = savedPosts.where((p) => p.id == postId).cast<Post?>().firstWhere((_) => true, orElse: () => null);
+    
+    if (savedPost != null) {
+      return Right(savedPost);
+    }
+
+    // If not found locally, fetch from remote API
     return await _repository.getPostById(postId);
   }
 }

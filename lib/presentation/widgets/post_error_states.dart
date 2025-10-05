@@ -3,7 +3,7 @@ import 'package:flutter_tech_task/presentation/widgets/error_display_widget.dart
 import 'package:flutter_tech_task/presentation/widgets/no_data_widget.dart';
 import 'package:flutter_tech_task/utils/api_error.dart';
 import 'package:flutter_tech_task/utils/app_constants.dart';
-import '../../i10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 
 /// A widget that handles different error states for post detail page
 /// Following Single Responsibility Principle - only handles error display logic

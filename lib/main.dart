@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'i10n/app_localizations.dart';
 import 'presentation/pages/comment_page.dart';
-import 'presentation/pages/home_page.dart';
 import 'presentation/pages/post_detail_page.dart';
+import 'presentation/pages/home_page.dart';
 import 'presentation/pages/post_list_page.dart';
+import 'l10n/app_localizations.dart';
 
 
 void main() {
